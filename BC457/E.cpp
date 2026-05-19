@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define FAST_IO                                                                \
+  ios_base::sync_with_stdio(false);                                            \
+  cin.tie(NULL);
+
+// int: 32 bits -+ 2**9
+// long: 32 or 64 bits depending on the platform
+// long long: 64 bits -+ 9**18
+#define ll long long
+#define vi vector<int>
+#define vii vector<pair<int, int>>
+#define pii pair<int, int>
+#define rep(i, a, b) for (int i = a; i < b; ++i)
+#define all(v) v.begin(), v.end()
+#define pb push_back
+#define endl "\n"
+
+// Constants
+const int MOD = 1e9 + 7;
+const int INF = 1e9;
+
+// Utility functions
+ll gcd(ll a, ll b) { return b == 0 ? a : gcd(b, a % b); }
+ll lcm(ll a, ll b) { return (a / gcd(a, b)) * b; }
+
+// print vector
+template <typename T> void print_vector(const std::vector<T> &vec) {
+  for (const T &x : vec) {
+    std::cout << x << " ";
+  }
+  std::cout << '\n';
+}
+
+// binary exponentiation
+ll pow(ll x, ll y, ll MOD = 0) {
+  ll res = 1;
+  while (y > 0) {
+    if (y % 2) {
+      res *= x;
+      if (MOD != 0)
+        res %= MOD;
+      y -= 1;
+    } else {
+      x *= x;
+      if (MOD != 0)
+        x %= MOD;
+      y /= 2;
+    }
+  }
+
+  return res;
+}
+
+int main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+
+  // need a cloth starting at L and another ending at R
+  // yes case falls under 3 conditions:
+  // 1. 2 cloths cover exactly [L, R]
+  // 2. cloth contained in [L + 1, R]; need to find first left end among those
+  // that end in R that is >= L + 1
+  // 3. cloth contained in [L, R - 1]; need to find latest element that ends <=
+  // R - 1
+}
